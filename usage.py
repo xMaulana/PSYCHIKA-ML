@@ -1,26 +1,18 @@
-MODEL_NAME = "indischepartij/MiaLatte-Indo-Mistral-7b"
-LORA_NAME = "xMaulana/QLoRA-Psychika"
+from psychika import generate_text_from_chat, load_model_and_token
 
-import torch
-from transformers import AutoTokenizer, MistralForCausalLM, BitsAndBytesConfig
-from peft import PeftModel
-from psychika import generate_text_from_chat, PSYCHIKA_BNBCONFIG
+model, tokenizer = load_model_and_token()
 
-device = "cuda" #harus pakai cuda
-
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = MistralForCausalLM.from_pretrained(MODEL_NAME, quantization_config=PSYCHIKA_BNBCONFIG, device_map="auto", low_cpu_mem_usage=True)
-lora_model = PeftModel.from_pretrained(
-    model,
-    LORA_NAME,
-    torch_dtype=torch.bfloat16,
-    device_map="auto"
-)
-
-model = lora_model.merge_and_unload().eval()
-
-messages = [{"role": "user", 
-             "content": "Aku merasa kurang bersemangat hari ini, apakah kamu bisa membantuku agar semangat?"}]
+messages = [{"role": "user",
+             "content": "Aku merasakan kecemasan yang berlebihan hari ini, aku tidak mengerti apa yang menyebabkan itu. apakah kamu dapat membantuku?"},
+           {
+               "role": "assistant",
+               "content": "Ya, aku bisa membantu. Kecemasan biasanya disebabkan oleh perasaan tidak aman atau takut. Apa yang terjadi hari ini yang membuat Anda merasa tidak aman? Bisa kita mulai dari sana? Jika Anda tidak dapat menemukan alasan, mungkin ada beberapa hal lain yang sedang terjadi dalam hidup Anda yang membuat Anda merasa tidak aman secara umum. Kami dapat mencoba mengidentifikasi hal-hal itu dan mendapatkan Anda lagi pada jalur yang lebih nyaman. Cobalah berlatih meditasi atau teknik relaksasi untuk menurunkan tingkat kecemasan Anda saat ini. Ini juga bisa menjadi bagian dari proses mengatasi masalah panjang termasuk kecemasan."
+           },
+               {
+                   "role": "user",
+                   "content": "Saat ini aku memiliki banyak sekali tugas yang harus ku kerjakan, apakah mungkin jika kecemasanku disebabkan karena itu?"
+               }
+           ]
 
 hasil = generate_text_from_chat(tokenizer, model, messages)
 
