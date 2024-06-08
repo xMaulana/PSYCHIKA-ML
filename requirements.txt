@@ -1,0 +1,6 @@
+torch==2.3.0+cu121
+transformers==4.39.3
+bitsandbytes==0.43.1
+accelerate==0.31.0
+peft==0.11.1
+adapters==0.2.1
