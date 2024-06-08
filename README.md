@@ -6,3 +6,6 @@ model has been fine tuned using QLoRA.
 
 You could follow usage.py to see how use psychika.py
 
+
+See the QLoRA : https://huggingface.co/xMaulana/QLoRA-Psychika
+
