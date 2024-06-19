@@ -6,7 +6,7 @@ This library is for bangkit capstone project. Chatbot model has been fine tuned 
 
 To running this project, please ensure that you have the following installed:
 
-- Python 3.8 or Higher (3.10 is recomendded)
+- Python 3.8 or Higher (3.10 is recommended)
 - Pytorch 2.3.1 (CUDA)
 - Cuda toolkit 11.8 or 12.1
 
