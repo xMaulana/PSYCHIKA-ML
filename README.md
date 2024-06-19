@@ -64,7 +64,7 @@ deactivate
 
 ## Addition
 
-If you want to use ollama, you can download Quantized model below and run ollama using:
+If you want to use ollama, you can download Quantized model below, copy and paste quantized model in the same directory as Modelfile, and run ollama using:
 ```bash
 ollama create psychika -f Modelfile
 ```
