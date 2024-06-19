@@ -1,15 +1,59 @@
-<h1>PSYCHIKA-ML</h1>
+# Psychika-ML
 
-<h3>#Chatbot Models Information</h3>
-<p>This library is for bangkit capstone project.<br>
-Chatbot model has been fine tuned using QLoRA and Quantized using GGUF.<br>
-You could follow usage.py to see how use QLoRA model.<br>
-You also can use ollama or lm studio to run the quantized models.<br>
-See the QLoRA model card : https://huggingface.co/xMaulana/QLoRA-Psychika-v1.4 <br>
-See also the Quantized model : https://huggingface.co/xMaulana/Psychika-Mental-7b-GGUF <br>
-</p>
+This library is for bangkit capstone project. Chatbot model has been fine tuned using QLoRA and Quantized using GGUF.
 
-<h3>#Text Classification Information</h3>
-<p>You can just run it using flask, but at first you need to get the models.<br>
-You can get it from here : https://huggingface.co/xMaulana/Psychika-Mental-Detection <br>
-</p>
+## Prerequisites
+
+To running this project, please ensure that you have the following installed:
+
+- Python 3.8 or Higher (3.10 is recomendded)
+- Pytorch 2.3.1 (CUDA)
+- Cuda toolkit 11.8 or 12.1
+
+## Installation
+
+1. Clone this repository:
+```bash
+git clone https://github.com/xMaulana/Psychika-ML.git
+
+2. Navigate into this project directory:
+```bash
+cd Psychika-ML
+
+3. Create virtual environment:
+    - Using venv:
+    ```bash
+    python3 -m venv psychika-env
+    - Using conda :
+    ```bash
+    conda create -n psychika-env python=3.10.*
+
+4. Activate the virtual environment
+    - Using venv:
+    ```bash
+    source psychika-env/bin/activate
+    - Using conda:
+    ```bash
+    conda activate psychika-env
+
+5. Install the project dependencies
+```bash
+pip install -r requirements.txt
+
+6. Run the project
+    - Text classifier (download the model below):
+    ```bash
+    flask run app.py
+    - Text generator
+    ```bash
+    python3 usage.py
+
+7. If you are done, you can exit from the virtual environment with:
+```bash
+deactivate
+
+
+## Models
+- QLoRA model: https://huggingface.co/xMaulana/QLoRA-Psychika-v1.4 
+- Quantized model : https://huggingface.co/xMaulana/Psychika-Mental-7b-GGUF
+- Text Classification model : https://huggingface.co/xMaulana/Psychika-Mental-Detection 
