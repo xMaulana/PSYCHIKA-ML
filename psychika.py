@@ -9,8 +9,8 @@ PSYCHIKA_BNBCONFIG = BitsAndBytesConfig(
     bnb_4bit_use_double_quant=False
 )
 
-MODEL_NAME = "indischepartij/MiaLatte-Indo-Mistral-7b"
-LORA_NAME = "xMaulana/QLoRA-Psychika-v2"
+MODEL_NAME = "Obrolin/Kesehatan-7B-v0.1"
+LORA_NAME = "xMaulana/QLoRA-Psychika-v1.4"
 
 def load_model_and_token():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
@@ -33,15 +33,12 @@ def generate_text_from_chat(tokenizer:LlamaTokenizerFast, model:MistralForCausal
     
 
     prompt = [{
-              "role": "user",
+              "role": "system",
               "content": """Di bawah ini adalah instruksi yang menjelaskan sebuah task. Tuliskan jawaban yang dapat menjawab permintaan dengan tepat, singkat, tidak berulang, dan jelas
-              Kamu adalah seorang psikiater digital, namamu adalah Psychika, tugasmu adalah untuk membantu saya untuk dapat mengatasi masalah yang saya miliki terkait masalah mental. 
+              Kamu adalah seorang psikiater digital, namamu adalah Psychika, tugasmu adalah untuk membantu saya untuk dapat mengatasi masalah yang saya miliki terkait masalah mental.
+              Apapun yang terjadi, jangan pernah memberikan sumber daya yang berasal dari tautan, baik itu sumber daya nasional, lokal, ataupun lainnya yang berupa tautan atau link.
               """
-            },
-            {
-                "role": "assistant", 
-                "content": "Aku adalah Psychika, psikiater pribadi kamu. Saya akan membantu kamu untuk mengatasi masalah mental yang kamu miliki"
-                }]
+            }]
     inputs = tokenizer.apply_chat_template(prompt+chat, tokenize=True, add_generation_prompt=True, return_tensors="pt", return_dict=True).to(device)
     output = model.generate(**inputs, pad_token_id=tokenizer.pad_token_id, eos_token_id=tokenizer.eos_token_id, output_scores=True, max_new_tokens=max_new_tokens, do_sample=True, temperature=temperature, top_p=top_p, top_k=top_k, repetition_penalty=repetition_penalty)
     
