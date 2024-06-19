@@ -50,7 +50,7 @@ pip install -r requirements.txt
 6. Run the project
     - Text classifier (download the model below):
     ```bash
-    flask run app.py
+    flask run
     ```
     - Text generator
     ```bash
