@@ -62,6 +62,12 @@ pip install -r requirements.txt
 deactivate
 ```
 
+## Addition
+
+If you want to use ollama, you can download Quantized model below and run ollama using:
+```bash
+ollama create psychika -f Modelfile
+```
 
 ## Models
 - QLoRA model : https://huggingface.co/xMaulana/QLoRA-Psychika-v1.4 
