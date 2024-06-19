@@ -15,6 +15,7 @@ To running this project, please ensure that you have the following installed:
 1. Clone this repository:
 ```bash
 git clone https://github.com/xMaulana/Psychika-ML.git
+```
 
 2. Navigate into this project directory:
 ```bash
@@ -63,6 +64,6 @@ deactivate
 
 
 ## Models
-- QLoRA model: https://huggingface.co/xMaulana/QLoRA-Psychika-v1.4 
+- QLoRA model : https://huggingface.co/xMaulana/QLoRA-Psychika-v1.4 
 - Quantized model : https://huggingface.co/xMaulana/Psychika-Mental-7b-GGUF
 - Text Classification model : https://huggingface.co/xMaulana/Psychika-Mental-Detection 
