@@ -19,38 +19,47 @@ git clone https://github.com/xMaulana/Psychika-ML.git
 2. Navigate into this project directory:
 ```bash
 cd Psychika-ML
+```
 
 3. Create virtual environment:
     - Using venv:
     ```bash
     python3 -m venv psychika-env
+    ```
     - Using conda :
     ```bash
     conda create -n psychika-env python=3.10.*
+    ```
 
 4. Activate the virtual environment
     - Using venv:
     ```bash
     source psychika-env/bin/activate
+    ```
     - Using conda:
     ```bash
     conda activate psychika-env
+    ```
 
 5. Install the project dependencies
 ```bash
 pip install -r requirements.txt
+```
 
 6. Run the project
     - Text classifier (download the model below):
     ```bash
     flask run app.py
+    ```
     - Text generator
     ```bash
     python3 usage.py
+    ```
 
 7. If you are done, you can exit from the virtual environment with:
 ```bash
 deactivate
+```
 
 
 ## Models
